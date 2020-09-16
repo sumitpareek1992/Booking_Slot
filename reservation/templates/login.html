@@ -1,18 +1,42 @@
-{% extends "registration.html" %}
-{% block body_block %}
+  {% extends "registration.html" %}
+  {% block block content %}
+  <style type="text/css">
+  .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;}
+ .h3 {
+    text-align: center;
+  }
 
-  <div class="container">
-    <div class="jumbotron">
 
-        <h1>Login Here</h1>
-  <form method="post">
-    {% csrf_token %}
-    username:<input type="text" name="username"><br><br>
-    password:<input type="text" name="password"><br><br>
-    <input type="submit" name="">
+</style>
 
 
-  </form>
+    <div class="container">
+      <div class="jumbotron">
+
+
+    <form method="post" class="form-signin">
+      <h2 class="h3 mb-3 font-weight-normal">Login Here</h2>
+      {% csrf_token %}
+      <input type="text" name="username" class="form-control" placeholder="Email" required="true">
+      <input name="password"class="form-control" placeholder="Password" type="password" required="true"><br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+
+
+    </form>
+      </div>
     </div>
-  </div>
-{% endblock %}
+  {% endblock %}

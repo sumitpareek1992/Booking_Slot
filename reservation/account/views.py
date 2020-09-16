@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from account.form import UserForm
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+
 
 
 def index(request):
@@ -42,13 +43,10 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect(reverse('index'))
-            else:
-                return HttpResponse("Your account was inactive.")
+                return render('index')
         else:
-            print("Someone tried to login and failed.")
-            print("They used username: {} and password: {}".format(username, password))
+
             return HttpResponse("Invalid login details given")
     else:
-        return render(request, 'login.html', {})
+        return render(request, 'login.html')
 
