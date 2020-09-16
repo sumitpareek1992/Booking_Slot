@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('account/', include('account.urls')),
+    path('booking/', include('booking.urls')),
     path('logout/', views.user_logout, name='logout'),
 ]
 if settings.DEBUG:

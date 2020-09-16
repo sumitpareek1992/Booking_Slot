@@ -13,9 +13,10 @@ class Time(models.Model):
     salon = models.ForeignKey(Salon ,on_delete=models.DO_NOTHING)
 
     def __str__(self):
-        self.start_time+'-'+self.end_time
+        return str(self.start_time)+'-'+str(self.end_time)
 class Slot(models.Model):
-    user_list = [('1', "1"), ('2', "2"), ('3', '3'), ('4', '4'), ('5', '5')]
-    slot_input = models.CharField(max_length=5)
+    slot_list = [('1', "1"), ('2', "2"), ('3', '3'), ('4', '4'), ('5', '5')]
+    slot_input = models.CharField(choices=slot_list, max_length=1)
     time_for_book = models.ForeignKey(Time,on_delete=models.DO_NOTHING)
+
 

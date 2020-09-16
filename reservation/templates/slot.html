@@ -1,0 +1,32 @@
+        {% extends "base.html" %}
+        {% load crispy_forms_tags %}
+        {% block content %}
+
+
+          <div class="container">
+            <div class="jumbotron">
+
+
+
+        <form  method="POST" class="form-signin">
+            <h2 class="h3 mb-3 font-weight-normal">Add Slot</h2>
+                  {% csrf_token %}
+                 {{ form |crispy }}
+                  <button class="btn btn-lg btn-danger btn-block" type="submit">Add </button><br>
+                </form>
+                  <table border="4">
+                <tr>
+                    <th>Time Period</th>
+                    <th>Slot</th>
+                </tr>
+                {% for obj in slot %}
+                    <tr>
+                        <td>{{ obj.slot_input }}</td>
+                        <td>{{ obj.time_for_book  }}</td>
+                    </tr>
+                {% endfor %}
+
+
+            </div>
+          </div>
+        {% endblock %}

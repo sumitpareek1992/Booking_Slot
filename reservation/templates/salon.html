@@ -1,0 +1,30 @@
+    {% extends "base.html" %}
+    {% load crispy_forms_tags %}
+    {% block content %}
+
+
+      <div class="container">
+        <div class="jumbotron">
+
+
+
+    <form  method="POST" class="form-signin">
+        <h2 class="h3 mb-3 font-weight-normal">Add New Salon</h2>
+              {% csrf_token %}
+         {{ form |crispy }}
+              <button class="btn btn-lg btn-danger btn-block" type="submit">Add Salon</button><br>
+            </form>
+                <table border="4">
+            <tr>
+                <th>Salon Name</th>
+            </tr>
+            {% for obj in salon %}
+                <tr>
+                    <td>{{ obj.name }}</td>
+                </tr>
+            {% endfor %}
+
+
+        </div>
+      </div>
+    {% endblock %}

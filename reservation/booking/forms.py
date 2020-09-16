@@ -1,5 +1,5 @@
 from django import forms
-from bookin.models import Salon, Time, Slot
+from booking.models import Salon, Time, Slot
 
 class SalonForm(forms.ModelForm):
     class Meta():
@@ -15,3 +15,4 @@ class SlotForm(forms.ModelForm):
     class Meta:
         model = Slot
         fields = '__all__'
+

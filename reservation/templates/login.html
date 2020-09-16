@@ -1,5 +1,5 @@
   {% extends "registration.html" %}
-  {% block block content %}
+  {% block content %}
   <style type="text/css">
   .form-signin {
     width: 100%;
@@ -31,7 +31,7 @@
     <form method="post" class="form-signin">
       <h2 class="h3 mb-3 font-weight-normal">Login Here</h2>
       {% csrf_token %}
-      <input type="text" name="username" class="form-control" placeholder="Email" required="true">
+      <input type="text" name="username" class="form-control" placeholder="UserName" required="true">
       <input name="password"class="form-control" placeholder="Password" type="password" required="true"><br>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
 
